@@ -83,7 +83,7 @@ function startAction(){
     $("#fruit").css({'left' : Math.round(700*Math.random()), 'top' : -50}); //random position
     
     //generate a random step
-    step = 1+ Math.round(10*Math.random()); // change step
+    step = 1+ Math.round(6*Math.random()); // change step
     
     // Move fruit down by one step every 10ms
     action = setInterval( () => {
@@ -92,19 +92,19 @@ function startAction(){
         $("#fruit").css('top', $("#fruit").position().top + step);                              
     
         //check if the fruit is too low
-        if($("#fruit").position().top > $("#fruitsContainer").height()){
+        if($("#fruit").position().top > $(".platform").height()){
             //check if we have trials left
             if(trialsLeft > 1 ){
                 //generate a fruit
                 $("#fruit").show();
                 chooseFruit(); //choose a random fruit
-                $("#fruit").css({'left' : Math.round(550*Math.random()), 'top' : -50}); //random position
+                $("#fruit").css({'left' : Math.round(700*Math.random()), 'top' : -50}); //random position
 
                 //generate a random step
-                step = 1+ Math.round(5*Math.random()); // change step
+                step = 1+ Math.round(6*Math.random()); // change step
                 
                 //reduce trials by one
-                trialsLeft --;
+                trialsLeft--;
                 
                 //populate trialsLeft box
                 addHearts();
@@ -114,7 +114,7 @@ function startAction(){
                 $("#btn").html("Start Game"); // change button to Start Game
                 $("#over").show();
                 $("#scoreis").html(score);
-                $("#trialsLeft").hide();
+                $("#lifebox").hide();
                 stopAction();
             }
         }
@@ -124,7 +124,7 @@ function startAction(){
 // generate a random fruit
 
 function chooseFruit(){
-    $("#fruit").attr('src' , 'images/' + fruits[Math.round(7*Math.random())] +'.png');   
+    $("#fruit").attr('src' , 'images/' + fruits[Math.round(6*Math.random())] +'.png');   
 }
 
 //Stop dropping fruits
